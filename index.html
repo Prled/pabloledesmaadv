@@ -24,18 +24,19 @@ html,body{height:100%}
 body{margin:0;font-family:"Inter","Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:#111;line-height:1.5;}
 p, li { text-align: justify; }
 
-/* --- Cabeçalho Sticky Premium --- */
+/* --- Cabeçalho Sticky Premium Centralizado --- */
 header{
   position:sticky;top:0;z-index:999;background:linear-gradient(180deg,var(--primary) 0%,#0b324f 120%);
-  padding:16px 28px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 22px rgba(13,34,57,0.12);flex-wrap:wrap;transition:all 0.3s ease;
+  padding:16px 28px;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 4px 22px rgba(13,34,57,0.12);transition:all 0.3s ease;
 }
 header.scrolled{background:var(--primary-strong);padding:12px 28px;box-shadow:0 4px 18px rgba(0,0,0,0.2);}
 .brand-header{display:flex;align-items:center;gap:16px}
 .logo-header{height:96px;filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.5));border-radius:8px;transition:height 0.3s ease}
 header.scrolled .logo-header{height:72px;}
-.brand-title h1{margin:0;font-size:1.55rem;color:var(--white);text-shadow:1px 1px 4px rgba(0,0,0,0.5);font-family:'Playfair Display', serif;font-weight:700;}
+.brand-title h1{margin:0;font-size:1.8rem;color:var(--white);text-shadow:1px 1px 4px rgba(0,0,0,0.5);font-family:'Playfair Display', serif;font-weight:700;}
 
-.nav{display:flex;gap:18px;align-items:center}
+/* Navbar horizontal abaixo do cabeçalho */
+.nav{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:8px;}
 .nav .btn-ghost{color:var(--white);font-weight:600;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all 0.3s ease}
 .nav .btn-ghost:hover{opacity:0.9;transform:translateY(-2px)}
 
@@ -57,15 +58,20 @@ header.scrolled .logo-header{height:72px;}
 .card h3{margin:0 0 8px 0;color:var(--primary-strong);font-size:1.05rem}
 .card p{margin:0;color:var(--muted);font-size:0.95rem}
 .split{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;max-width:1180px;margin:32px auto;padding:26px}
-.about p{color:var(--muted);}
+.about p{color:var(--muted)}
 
-/* Lista "Por que me escolher" ajustada */
+/* Lista “Por que me escolher” com seta → */
 ul li {
   margin-bottom: 12px;
+  list-style:none;
+}
+ul li::before {
+  content: "→ ";
+  color: var(--accent);
+  font-weight:700;
 }
 ul li strong {
-  display: block;
-  margin-bottom: 4px;
+  font-weight:700;
 }
 
 /* --- Footer --- */
@@ -124,6 +130,7 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 </header>
 
 <main>
+<!-- Hero -->
 <section class="hero" role="region" aria-label="Introdução">
   <div class="hero-text">
     <h1>Advocacia Trabalhista em SP – Segurança e Precisão Técnica</h1>
@@ -140,6 +147,7 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
   </div>
 </section>
 
+<!-- Áreas de atuação -->
 <section id="areas" class="section" role="region" aria-label="Áreas de atuação">
 <h2>Áreas de atuação</h2>
 <div class="grid" role="list">
@@ -151,15 +159,16 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 </div>
 </section>
 
+<!-- Sobre -->
 <section id="sobre" class="split" role="region" aria-label="Sobre">
 <div class="about">
 <h2>Por que me escolher</h2>
 <p class="muted">Divido minha experiência entre setor público e privado, permitindo avaliar riscos e oportunidades com visão estratégica rara no mercado. Trabalho com foco em mitigação de passivos, eficiência e orientações práticas.</p>
-<ul style="margin-top:16px;color:var(--muted);padding-left:0;list-style:none;">
-<li><strong>Diagnóstico objetivo</strong><br>Orientações claras desde o primeiro contato.</li>
-<li><strong>Atuação estratégica</strong><br>Soluções que preservam resultado e tempo do cliente.</li>
-<li><strong>Transparência</strong><br>Comunicação direta e planejamento de custos.</li>
-<li><strong>Experiência comprovada</strong><br>10 anos atuando em casos complexos no setor público e privado.</li>
+<ul style="margin-top:16px;color:var(--muted);padding-left:16px;">
+<li><strong>Diagnóstico objetivo</strong> Orientações claras desde o primeiro contato.</li>
+<li><strong>Atuação estratégica</strong> Soluções que preservam resultado e tempo do cliente.</li>
+<li><strong>Transparência</strong> Comunicação direta e planejamento de custos.</li>
+<li><strong>Experiência comprovada</strong> 10 anos atuando em casos complexos no setor público e privado.</li>
 </ul>
 </div>
 <aside aria-hidden="true">
@@ -171,6 +180,7 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 </aside>
 </section>
 
+<!-- Contato -->
 <section id="contato" class="section center" role="region" aria-label="Contato">
 <h2>Precisa de orientação trabalhista agora?</h2>
 <p class="muted">Preencha o formulário ou fale diretamente pelo WhatsApp para receber atendimento imediato e personalizado.</p>
