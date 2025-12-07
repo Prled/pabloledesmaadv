@@ -1,201 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Advocacia Trabalhista em SP - Segurança e precisão técnica</title>
-<meta name="description" content="Advocacia trabalhista especializada para trabalhadores e empresas. Atendimento técnico, estratégico e com foco em resultado. Fale agora pelo WhatsApp.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advocacia Trabalhista em SP - Segurança e precisão técnica</title>
+  <meta name="description" content="Advocacia trabalhista especializada para trabalhadores e empresas. Atendimento técnico, estratégico e com foco em resultado. Fale agora pelo WhatsApp." />
+  <meta property="og:title" content="Advocacia Trabalhista em SP - Segurança e precisão técnica" />
+  <meta property="og:description" content="Advocacia trabalhista especializada para trabalhadores e empresas. Atendimento técnico, estratégico e com foco em resultado. Fale agora pelo WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo-cabecalho.png" />
+  <meta property="og:url" content="https://pabloledesma-adv.com.br" />
+  <style>
+    :root{
+      --primary:#0d2239;
+      --primary-strong:#0b1f34;
+      --accent:#1f3b5a;
+      --muted:#6b6b6b;
+      --bg:#f5f6f8;
+      --white:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --transition: 320ms cubic-bezier(.2,.9,.3,1);
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%; margin:0; font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif; background:var(--bg); color:#111; line-height:1.5; -webkit-font-smoothing:antialiased;}
+    p, li{ text-align:justify; }
 
-<!-- SEO Avançado / Open Graph -->
-<meta property="og:title" content="Advocacia Trabalhista em SP - Segurança e precisão técnica">
-<meta property="og:description" content="Atuação estratégica para trabalhadores e empresas. Atendimento técnico, rápido e focado em resultados. Fale agora via WhatsApp!">
-<meta property="og:image" content="https://pabloledesma-adv.com.br/logo-cabecalho.png">
-<meta property="og:url" content="https://pabloledesma-adv.com.br/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Advocacia Trabalhista em SP - Segurança e precisão técnica">
-<meta name="twitter:description" content="Atuação estratégica para trabalhadores e empresas. Atendimento técnico, rápido e focado em resultados. Fale agora via WhatsApp!">
-<meta name="twitter:image" content="https://pabloledesma-adv.com.br/logo-cabecalho.png">
+    header{
+      background:linear-gradient(180deg,var(--primary) 0%, #0b324f 120%);
+      padding:18px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 4px 22px rgba(13,34,57,0.12);
+    }
+    .brand{ display:flex; align-items:center; gap:16px; }
+    .brand img.logo{ height:64px; display:block; }
+    .brand span{ color:white; font-weight:700; font-size:1.2rem; }
+    .nav{ display:flex; gap:18px; align-items:center; }
+    .nav .btn-ghost{ color:var(--white); text-decoration:none; padding:8px 12px; border-radius:8px; font-weight:600; opacity:0.95; }
 
-<style>
-:root{
-  --primary:#0d2239;
-  --primary-strong:#0b1f34;
-  --accent:#1f3b5a;
-  --muted:#6b6b6b;
-  --bg:#f5f6f8;
-  --white:#ffffff;
-  --transition:320ms cubic-bezier(.2,.9,.3,1);
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:"Inter","Segoe UI",Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:#111;
-  line-height:1.5;
-  text-align:justify;
-}
+    .hero{
+      max-width:1180px;
+      margin:28px auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:36px;
+      align-items:center;
+      padding:48px;
+      border-radius:14px;
+      box-shadow:0 10px 40px rgba(16,24,40,0.06);
+      transform-origin:top center;
+      animation:fadeUp .6s ease both;
+    }
+    @keyframes fadeUp { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+    .hero-text h1{ margin:0 0 18px 0; font-size:2.05rem; color:var(--primary-strong); letter-spacing:-0.4px; line-height:1.12; font-weight:700; }
+    .hero-text p{ margin:0 0 22px 0; color:var(--muted); font-size:1.02rem; max-width:70ch; }
+    .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+    .btn-primary{
+      display:inline-block; background:linear-gradient(180deg,var(--accent), #113b5a); color:var(--white); padding:14px 20px;
+      border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 8px 20px rgba(17,59,90,0.12); transition:all var(--transition);
+    }
+    .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 12px 30px rgba(17,59,90,0.14); }
+    .btn-secondary{ display:inline-block; background:transparent; border:1px solid rgba(13,34,57,0.08); padding:12px 18px; border-radius:10px; color:var(--primary-strong); text-decoration:none; font-weight:600; }
+    .hero-photo{ display:flex; justify-content:center; align-items:center; position:relative; }
+    .hero-photo .photo-frame{ width:320px; border-radius:12px; overflow:hidden; border:6px solid rgba(13,34,57,0.06); box-shadow: 0 20px 60px rgba(13,34,57,0.08); background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(245,246,248,0.6)); transition:transform 400ms ease; }
+    .hero-photo img{ width:100%; height:auto; display:block; transform:translateY(0); }
+    .hero-photo .photo-frame:hover{transform:translateY(-6px)}
 
-/* --- Header fixo --- */
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:linear-gradient(180deg,var(--primary) 0%, #0b324f 120%);
-  padding:18px 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 4px 22px rgba(13,34,57,0.12);
-  z-index:999;
-}
-body{padding-top:100px;}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-.brand img.logo{
-  height:72px;
-}
-.nav{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-.nav .btn-ghost{
-  color:var(--white);
-  text-decoration:none;
-  padding:8px 12px;
-  border-radius:8px;
-  font-weight:600;
-  opacity:0.95;
-}
+    .section { max-width:1180px; margin:32px auto; padding:26px; }
+    .section h2{ color:var(--primary-strong); font-size:1.45rem; margin:0 0 18px 0; font-weight:700; }
+    .grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:16px; }
+    .card{ background:var(--white); padding:20px; border-radius:12px; box-shadow:0 6px 20px rgba(16,24,40,0.04); transition:transform var(--transition); }
+    .card h3{ margin:0 0 8px 0; color:var(--primary-strong); font-size:1.05rem; }
+    .card p{ margin:0; color:var(--muted); font-size:0.95rem; }
 
-/* --- Hero --- */
-.hero{
-  max-width:1180px;
-  margin:28px auto;
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-  display:grid;
-  grid-template-columns:1fr 420px;
-  gap:36px;
-  align-items:center;
-  padding:48px;
-  border-radius:14px;
-  box-shadow:0 10px 40px rgba(16,24,40,0.06);
-  animation:fadeUp .6s ease both;
-}
-@keyframes fadeUp {
-  from{opacity:0; transform:translateY(10px)}
-  to{opacity:1; transform:translateY(0)}
-}
-.hero-text h1{
-  margin:0 0 18px 0;
-  font-size:2.05rem;
-  color:var(--primary-strong);
-  letter-spacing:-0.4px;
-  line-height:1.12;
-  font-weight:700;
-}
-.hero-text p{
-  margin:0 0 22px 0;
-  color:var(--muted);
-  font-size:1.02rem;
-  max-width:70ch;
-}
-.hero-ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
-.btn-primary{
-  display:inline-block;
-  background:linear-gradient(180deg,var(--accent), #113b5a);
-  color:var(--white);
-  padding:14px 20px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  box-shadow:0 8px 20px rgba(17,59,90,0.12);
-  transition:all var(--transition);
-}
-.btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(17,59,90,0.14);
-}
-.btn-secondary{
-  display:inline-block;
-  background:transparent;
-  border:1px solid rgba(13,34,57,0.08);
-  padding:12px 18px;
-  border-radius:10px;
-  color:var(--primary-strong);
-  text-decoration:none;
-  font-weight:600;
-}
-.hero-photo{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-}
-.hero-photo .photo-frame{
-  width:320px;
-  border-radius:12px;
-  overflow:hidden;
-  border:6px solid rgba(13,34,57,0.06);
-  box-shadow:0 20px 60px rgba(13,34,57,0.08);
-  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(245,246,248,0.6));
-  transition:transform 400ms ease;
-}
-.hero-photo img{
-  width:100%;
-  height:auto;
-  display:block;
-  transform:translateY(0);
-}
-.hero-photo .photo-frame:hover{transform:translateY(-6px)}
+    .split{ display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:start; max-width:1180px; margin:32px auto; padding:26px; }
+    .about p{color:var(--muted)}
 
-/* --- Sections --- */
-.section{max-width:1180px;margin:32px auto;padding:26px;}
-.section h2{color:var(--primary-strong);font-size:1.45rem;margin:0 0 18px 0;font-weight:700;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px;}
-.card{background:var(--white);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,0.04);transition:transform var(--transition);}
-.card h3{margin:0 0 8px 0;color:var(--primary-strong);font-size:1.05rem}
-.card p{margin:0;color:var(--muted);font-size:0.95rem}
-.split{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;max-width:1180px;margin:32px auto;padding:26px;}
-.about p{color:var(--muted)}
-footer{margin-top:36px;background:linear-gradient(180deg,var(--primary), #0b324f);color:var(--white);padding:28px;text-align:center;border-radius:8px;max-width:1180px;margin-left:auto;margin-right:auto;}
+    footer{ margin-top:36px; background:linear-gradient(180deg,var(--primary), #0b324f); color:var(--white); padding:28px; text-align:center; border-radius:8px; max-width:1180px; margin-left:auto; margin-right:auto; }
 
-/* --- Floating WhatsApp --- */
-.whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;gap:10px;align-items:center;}
-.whatsapp-btn{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:white;box-shadow:0 10px 30px rgba(37,211,102,0.16);text-decoration:none;transition:transform var(--transition);border:none;}
-.whatsapp-btn:hover{transform:translateY(-4px)}
-.whatsapp-label{display:none;background:#25D366;color:white;padding:10px 14px;border-radius:10px;font-weight:700;box-shadow:0 6px 18px rgba(13,34,57,0.12);}
-@media(min-width:960px){.whatsapp-float{right:28px; bottom:28px}.whatsapp-label{display:inline-block;margin-right:8px}}
-
-@media(max-width:980px){
-  .hero{grid-template-columns:1fr; padding:28px}
-  .grid{grid-template-columns:repeat(2, 1fr)}
-  .split{grid-template-columns:1fr}
-  .hero-text{margin-right:0}
-  .hero-photo{margin-top:18px}
-  .brand img.logo{height:52px}
-}
-@media(max-width:620px){
-  .grid{grid-template-columns:1fr}
-  .hero-text h1{font-size:1.5rem}
-  .btn-primary{padding:12px 16px}
-}
-.muted{color:var(--muted)}
-.center{text-align:center}
-</style>
+    .whatsapp-float{ position:fixed; right:18px; bottom:18px; z-index:9999; display:flex; gap:10px; align-items:center; }
+    .whatsapp-btn{ width:56px; height:56px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:transparent; box-shadow:0 10px 30px rgba(37,211,102,0.16); text-decoration:none; transition:transform var(--transition); border:none; }
+    .whatsapp-btn:hover{transform:translateY(-4px);}
+    .whatsapp-label{ display:none; background:var(--primary-strong); color:white; padding:10px 14px; border-radius:10px; font-weight:700; box-shadow:0 6px 18px rgba(13,34,57,0.12); }
+    @media(min-width:960px){ .whatsapp-float{right:28px; bottom:28px} .whatsapp-label{display:inline-block; margin-right:8px} }
+    @media(max-width:980px){ .hero{grid-template-columns:1fr; padding:28px} .grid{grid-template-columns:repeat(2, 1fr)} .split{grid-template-columns:1fr} .hero-text{margin-right:0} .hero-photo{margin-top:18px} .brand img.logo{height:52px} }
+    @media(max-width:620px){ .grid{grid-template-columns:1fr} .hero-text h1{font-size:1.5rem} .btn-primary{padding:12px 16px} }
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+  </style>
 </head>
 <body>
-
 <header>
   <div class="brand">
     <img src="logo-cabecalho.png" alt="Logo Pablo Ledesma Advocacia" class="logo" />
+    <span>Pablo Ledesma Advocacia</span>
   </div>
   <nav class="nav">
     <a class="btn-ghost" href="#areas">Áreas</a>
@@ -205,13 +105,15 @@ footer{margin-top:36px;background:linear-gradient(180deg,var(--primary), #0b324f
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero" role="region" aria-label="Introdução">
     <div class="hero-text">
       <h1>Advocacia Trabalhista com Segurança e Precisão Técnica</h1>
       <p>Atuação estratégica para trabalhadores e empresas — 10 anos de experiência no setor público e privado. Atendimento objetivo, técnica elevada e foco em resultados práticos.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="https://wa.me/5511949936195" target="_blank" rel="noopener noreferrer" aria-label="Falar agora com o advogado via WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 0 24 24" style="margin-right:6px">
+            <path d="M12.004 2C6.487 2 2 6.485 2 12c0 2.11.553 4.077 1.518 5.815L2 22l4.375-1.434A9.955 9.955 0 0012.004 22c5.517 0 10.004-4.485 10.004-10S17.52 2 12.004 2zm5.482 14.428c-.216.61-1.25 1.152-1.73 1.202-.462.05-1.033.071-4.007-1.09-3.86-1.437-6.365-5.184-6.536-5.408-.172-.226-1.41-1.718-1.41-3.284 0-1.566.808-2.336 1.096-2.664.288-.328.63-.411.84-.411.21 0 .422.003.607.009.19.007.442-.073.692.523.247.597.838 2.064.913 2.21.072.145.122.32.03.518-.092.198-.138.32-.283.498-.144.177-.303.395-.432.528-.142.145-.293.308-.125.604.168.296.747 1.233 1.598 1.994 1.102 1.033 2.042 1.34 2.348 1.49.304.148.48.125.657-.075.178-.2.762-.883.963-1.18.2-.296.4-.247.67-.15.27.098 1.717.81 2.014.956.296.145.494.216.567.337.072.122.072.704-.144 1.315z"/>
+          </svg>
           Falar agora com o advogado
         </a>
         <a class="btn-secondary" href="#contato">Agendar consulta</a>
@@ -224,7 +126,6 @@ footer{margin-top:36px;background:linear-gradient(180deg,var(--primary), #0b324f
     </div>
   </section>
 
-  <!-- AREAS -->
   <section id="areas" class="section" role="region" aria-label="Áreas de atuação">
     <h2>Áreas de atuação</h2>
     <div class="grid" role="list">
@@ -251,7 +152,6 @@ footer{margin-top:36px;background:linear-gradient(180deg,var(--primary), #0b324f
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="sobre" class="split" role="region" aria-label="Sobre">
     <div class="about">
       <h2>Por que me escolher</h2>
@@ -271,72 +171,38 @@ footer{margin-top:36px;background:linear-gradient(180deg,var(--primary), #0b324f
     </aside>
   </section>
 
-  <!-- CONTACT + FORM -->
   <section id="contato" class="section center" role="region" aria-label="Contato">
     <h2>Precisa de orientação trabalhista agora?</h2>
-    <p class="muted">Atendimento por WhatsApp ou por formulário. Preencha abaixo e entrarei em contato rapidamente.</p>
-
-    <form action="https://formsubmit.co/prled@outlook.com" method="POST" style="max-width:600px;margin:20px auto;display:flex;flex-direction:column;gap:14px;">
-      <input type="text" name="name" placeholder="Seu nome completo" required style="padding:12px; border-radius:8px; border:1px solid #ccc;">
-      <input type="email" name="email" placeholder="Seu e-mail" required style="padding:12px; border-radius:8px; border:1px solid #ccc;">
-      <input type="tel" name="phone" placeholder="Telefone/WhatsApp" required style="padding:12px; border-radius:8px; border:1px solid #ccc;">
-      <select name="service" required style="padding:12px; border-radius:8px; border:1px solid #ccc;">
-        <option value="" disabled selected>Área de atuação de interesse</option>
-        <option value="Direito do Trabalho">Direito do Trabalho</option>
-        <option value="Processo do Trabalho">Processo do Trabalho</option>
-        <option value="Direito Constitucional">Direito Constitucional</option>
-        <option value="Direito Sindical">Direito Sindical</option>
-        <option value="Compliance Trabalhista">Compliance Trabalhista</option>
-      </select>
-      <textarea name="message" placeholder="Descreva sua situação ou dúvida" required style="padding:12px; border-radius:8px; border:1px solid #ccc; min-height:120px;"></textarea>
-      <button type="submit" style="padding:14px; border:none; border-radius:10px; background:linear-gradient(180deg,#1f3b5a,#113b5a); color:white; font-weight:700; cursor:pointer;">Enviar mensagem</button>
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://pabloledesma-adv.com.br/#contato">
+    <p class="muted">Atendimento por WhatsApp e consulta agendada conforme sua necessidade.</p>
+    <!-- Formulário via Formsubmit -->
+    <form action="https://formsubmit.co/prled@outlook.com" method="POST" style="margin-top:12px; display:flex; flex-direction:column; gap:12px; max-width:480px; margin-left:auto; margin-right:auto;">
+      <input type="text" name="name" placeholder="Nome completo" required style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+      <input type="email" name="email" placeholder="Email" required style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+      <input type="tel" name="phone" placeholder="Telefone/WhatsApp" required style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+      <textarea name="message" placeholder="Mensagem" rows="4" required style="padding:10px; border-radius:8px; border:1px solid #ccc;"></textarea>
+      <button type="submit" class="btn-primary" style="display:flex; align-items:center; justify-content:center; gap:6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 0 24 24">
+          <path d="M12.004 2C6.487 2 2 6.485 2 12c0 2.11.553 4.077 1.518 5.815L2 22l4.375-1.434A9.955 9.955 0 0012.004 22c5.517 0 10.004-4.485 10.004-10S17.52 2 12.004 2zm5.482 14.428c-.216.61-1.25 1.152-1.73 1.202-.462.05-1.033.071-4.007-1.09-3.86-1.437-6.365-5.184-6.536-5.408-.172-.226-1.41-1.718-1.41-3.284 0-1.566.808-2.336 1.096-2.664.288-.328.63-.411.84-.411.21 0 .422.003.607.009.19.007.442-.073.692.523.247.597.838 2.064.913 2.21.072.145.122.32.03.518-.092.198-.138.32-.283.498-.144.177-.303.395-.432.528-.142.145-.293.308-.125.604.168.296.747 1.233 1.598 1.994 1.102 1.033 2.042 1.34 2.348 1.49.304.148.48.125.657-.075.178-.2.762-.883.963-1.18.2-.296.4-.247.67-.15.27.098 1.717.81 2.014.956.296.145.494.216.567.337.072.122.072.704-.144 1.315z"/>
+        </svg>
+        Enviar mensagem
+      </button>
     </form>
-
-    <a class="btn-primary" href="https://wa.me/5511949936195" target="_blank" rel="noopener noreferrer" style="margin-top:12px; display:inline-flex; align-items:center; gap:8px; justify-content:center;">
-      <img src="whatsapp-logo.png" alt="WhatsApp" style="width:24px; height:24px">
-      Falar agora com o advogado
-    </a>
-  </section>
-
-  <!-- PROVA SOCIAL -->
-  <section class="section center" aria-label="Prova Social">
-    <p style="font-weight:600; color:var(--primary-strong); margin-bottom:6px;">Mais de 10 anos de experiência no setor público e privado</p>
-    <p class="muted">Atendimento a dezenas de empresas e trabalhadores, com foco em resultados rápidos e seguros.</p>
   </section>
 
 </main>
 
 <footer>
-  <div style="max-width:980px;margin:0 auto;">
-    <p style="margin:0 0 6px 0;font-weight:600">© 2025 Pablo Ledesma Advocacia</p>
-    <p style="margin:0;font-size:0.92rem" class="muted">Atendimento online e presencial • Email: prled@outlook.com</p>
-  </div>
+  <p>Pablo Ledesma Advocacia • OAB/SP nº 394.502 • Email: prled@outlook.com</p>
 </footer>
 
-<div class="whatsapp-float" aria-hidden="false">
+<!-- Botão WhatsApp flutuante -->
+<div class="whatsapp-float">
   <span class="whatsapp-label">Falar agora</span>
-  <a class="whatsapp-btn" href="https://wa.me/5511949936195" target="_blank" rel="noopener noreferrer" aria-label="Abrir chat no WhatsApp">
-    <img src="whatsapp-logo.png" alt="WhatsApp" style="width:24px; height:24px">
+  <a class="whatsapp-btn" href="https://wa.me/5511949936195" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 24 24">
+      <path d="M12.004 2C6.487 2 2 6.485 2 12c0 2.11.553 4.077 1.518 5.815L2 22l4.375-1.434A9.955 9.955 0 0012.004 22c5.517 0 10.004-4.485 10.004-10S17.52 2 12.004 2zm5.482 14.428c-.216.61-1.25 1.152-1.73 1.202-.462.05-1.033.071-4.007-1.09-3.86-1.437-6.365-5.184-6.536-5.408-.172-.226-1.41-1.718-1.41-3.284 0-1.566.808-2.336 1.096-2.664.288-.328.63-.411.84-.411.21 0 .422.003.607.009.19.007.442-.073.692.523.247.597.838 2.064.913 2.21.072.145.122.32.03.518-.092.198-.138.32-.283.498-.144.177-.303.395-.432.528-.142.145-.293.308-.125.604.168.296.747 1.233 1.598 1.994 1.102 1.033 2.042 1.34 2.348 1.49.304.148.48.125.657-.075.178-.2.762-.883.963-1.18.2-.296.4-.247.67-.15.27.098 1.717.81 2.014.956.296.145.494.216.567.337.072.122.072.704-.144 1.315z"/>
+    </svg>
   </a>
 </div>
-
-<script>
-(function(){
-  var imgs = document.images;
-  for(var i=0;i<imgs.length;i++){imgs[i].decoding='async';}
-  if('scrollBehavior' in document.documentElement.style){
-    var links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(function(a){
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        var target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
-      });
-    });
-  }
-})();
-</script>
 </body>
 </html>
