@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Advocacia Trabalhista em SP - Segurança e precisão técnica</title>
 <meta name="description" content="Pablo Ledesma, advogado trabalhista em SP, oferece consultoria e defesa estratégica para empresas e funcionários. Atendimento rápido pelo WhatsApp ou formulário.">
-
-<!-- Fonte sofisticada para cabeçalho -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --primary:#0d2239;
@@ -22,21 +18,19 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;font-family:"Inter","Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:#111;line-height:1.5;}
-p, li { text-align: justify; }
+p, li { text-align: justify; text-justify: inter-word; }
 
-/* --- Cabeçalho Sticky Premium Centralizado --- */
+/* --- Cabeçalho Sticky Premium --- */
 header{
   position:sticky;top:0;z-index:999;background:linear-gradient(180deg,var(--primary) 0%,#0b324f 120%);
-  padding:16px 28px;display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:0 4px 22px rgba(13,34,57,0.12);transition:all 0.3s ease;
+  padding:16px 28px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 22px rgba(13,34,57,0.12);flex-wrap:wrap;transition:all 0.3s ease;
 }
 header.scrolled{background:var(--primary-strong);padding:12px 28px;box-shadow:0 4px 18px rgba(0,0,0,0.2);}
 .brand-header{display:flex;align-items:center;gap:16px}
 .logo-header{height:96px;filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.5));border-radius:8px;transition:height 0.3s ease}
 header.scrolled .logo-header{height:72px;}
-.brand-title h1{margin:0;font-size:1.8rem;color:var(--white);text-shadow:1px 1px 4px rgba(0,0,0,0.5);font-family:'Playfair Display', serif;font-weight:700;}
-
-/* Navbar horizontal abaixo do cabeçalho */
-.nav{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:8px;}
+.brand-title h1{margin:0;font-size:1.55rem;color:var(--white);text-shadow:1px 1px 4px rgba(0,0,0,0.5)}
+.nav{display:flex;gap:18px;align-items:center}
 .nav .btn-ghost{color:var(--white);font-weight:600;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all 0.3s ease}
 .nav .btn-ghost:hover{opacity:0.9;transform:translateY(-2px)}
 
@@ -59,20 +53,6 @@ header.scrolled .logo-header{height:72px;}
 .card p{margin:0;color:var(--muted);font-size:0.95rem}
 .split{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;max-width:1180px;margin:32px auto;padding:26px}
 .about p{color:var(--muted)}
-
-/* Lista “Por que me escolher” com seta → */
-ul li {
-  margin-bottom: 12px;
-  list-style:none;
-}
-ul li::before {
-  content: "→ ";
-  color: var(--accent);
-  font-weight:700;
-}
-ul li strong {
-  font-weight:700;
-}
 
 /* --- Footer --- */
 footer{margin-top:36px;background:linear-gradient(180deg,var(--primary),#0b324f);color:var(--white);padding:28px;text-align:center;border-radius:8px;max-width:1180px;margin-left:auto;margin-right:auto}
@@ -101,16 +81,32 @@ footer{margin-top:36px;background:linear-gradient(180deg,var(--primary),#0b324f)
 form input,form textarea{padding:12px 14px;border-radius:8px;border:1px solid #ccc;font-size:1rem;width:100%;transition:border 0.2s ease}
 form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 
+/* --- Lista Por que me escolher com seta animada --- */
+ul li {
+  list-style-type: disc;
+  margin-bottom:10px;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+ul li span {
+  margin-left:4px;
+  color: var(--muted);
+}
+ul li:hover span {
+  color: var(--accent);
+}
+ul li::marker {
+  color: var(--primary-strong);
+}
+
+/* --- Utilities --- */
+.muted{color:var(--muted)}
+.center{text-align:center}
+
 /* --- Responsividade --- */
 @media(min-width:960px){.whatsapp-float{right:28px;bottom:28px}.whatsapp-label{display:inline-block;margin-right:8px}}
 @media(max-width:980px){.hero{grid-template-columns:1fr;padding:28px}.split{grid-template-columns:1fr}.hero-text{margin-right:0}.hero-photo{margin-top:18px}.logo-header{height:64px}}
-@media(max-width:620px){
-  .hero-text h1{font-size:1.45rem;line-height:1.2}
-  .btn-primary,.btn-secondary{padding:14px 16px;font-size:0.95rem}
-  .hero-photo .photo-frame{width:280px}
-  .logo-header{height:48px}
-  p, li{text-align:left} /* ajuste da justificação em mobile */
-}
+@media(max-width:620px){.hero-text h1{font-size:1.45rem;line-height:1.2}.btn-primary,.btn-secondary{padding:14px 16px;font-size:0.95rem}.hero-photo .photo-frame{width:280px}.logo-header{height:48px}}
 </style>
 </head>
 <body>
@@ -163,12 +159,11 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 <section id="sobre" class="split" role="region" aria-label="Sobre">
 <div class="about">
 <h2>Por que me escolher</h2>
-<p class="muted">Divido minha experiência entre setor público e privado, permitindo avaliar riscos e oportunidades com visão estratégica rara no mercado. Trabalho com foco em mitigação de passivos, eficiência e orientações práticas.</p>
-<ul style="margin-top:16px;color:var(--muted);padding-left:16px;">
-<li><strong>Diagnóstico objetivo</strong> Orientações claras desde o primeiro contato.</li>
-<li><strong>Atuação estratégica</strong> Soluções que preservam resultado e tempo do cliente.</li>
-<li><strong>Transparência</strong> Comunicação direta e planejamento de custos.</li>
-<li><strong>Experiência comprovada</strong> 10 anos atuando em casos complexos no setor público e privado.</li>
+<ul style="margin-top:16px;">
+<li><strong>Diagnóstico objetivo</strong> <span>--> Orientações claras desde o primeiro contato.</span></li>
+<li><strong>Atuação estratégica</strong> <span>--> Soluções que preservam resultado e tempo do cliente.</span></li>
+<li><strong>Transparência</strong> <span>--> Comunicação direta e planejamento de custos.</span></li>
+<li><strong>Experiência comprovada</strong> <span>--> 10 anos atuando em casos complexos no setor público e privado.</span></li>
 </ul>
 </div>
 <aside aria-hidden="true">
@@ -203,6 +198,7 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 </div>
 </footer>
 
+<!-- WhatsApp oficial flutuante -->
 <div class="whatsapp-float" id="whatsappFloat" aria-hidden="false">
 <span class="whatsapp-label">Falar agora</span>
 <a class="whatsapp-btn" id="whatsappFloatBtn" href="https://wa.me/5511949936195?text=Olá,%20Pablo!%20Gostaria%20de%20uma%20orientação%20trabalhista." target="_blank" rel="noopener noreferrer" aria-label="Abrir chat com Pablo Ledesma no WhatsApp">
@@ -210,6 +206,7 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 </a>
 </div>
 
+<!-- Pop-up WhatsApp inteligente -->
 <div id="whatsappPopup">
 <p>Atendimento rápido pelo WhatsApp!</p>
 <a href="https://wa.me/5511949936195?text=Olá,%20Pablo!%20Gostaria%20de%20uma%20orientação%20trabalhista." target="_blank" class="popup-btn">Falar agora</a>
