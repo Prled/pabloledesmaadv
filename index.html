@@ -192,21 +192,12 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
 </a>
 </div>
 
-<!-- Pop-up WhatsApp inteligente -->
-<div id="whatsappPopup">
-<p>Atendimento rápido pelo WhatsApp!</p>
-<a href="https://wa.me/5511949936195?text=Olá,%20Pablo!%20Gostaria%20de%20uma%20orientação%20trabalhista." target="_blank" class="popup-btn">Falar agora</a>
-</div>
-
 <script>
 // Sticky header
 window.addEventListener('scroll',function(){
   const header=document.getElementById('header');
   if(window.scrollY>40) header.classList.add('scrolled'); else header.classList.remove('scrolled');
 });
-
-// Pop-up WhatsApp após 8s
-setTimeout(()=>{document.getElementById('whatsappPopup').style.display='flex'},8000);
 
 // Form async + redirecionamento WhatsApp
 const form=document.getElementById('contactForm');
