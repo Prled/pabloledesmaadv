@@ -194,30 +194,47 @@ form input:focus,form textarea:focus{border-color:var(--accent);outline:none}
     </details>
   </div>
 </section>
+  
 <!-- FORMULÁRIO OTIMIZADO -->
 <section id="contato" style="max-width:1180px;margin:46px auto;padding:26px;text-align:center;">
   <h2 style="color:#0b1f34;font-size:1.55rem;margin-bottom:12px;">Precisa de orientação trabalhista agora?</h2>
-  <p style="color:#6b6b6b;max-width:640px;margin:0 auto 24px auto;line-height:1.6;">
-    Preencha o formulário ou fale diretamente pelo WhatsApp. <br>
-    Sua mensagem é sigilosa e analisada pessoalmente por mim.
-  </p>
+ <p style="color:#6b6b6b;max-width:640px;margin:0 auto 24px auto;line-height:1.6;text-align:center;">
+  Preencha o formulário ou fale diretamente pelo WhatsApp. <br>
+  Sua mensagem é sigilosa e analisada pessoalmente por mim.
+</p>
 
-  <form action="https://formspree.io/f/xgvglava" method="POST" style="max-width:480px;margin:24px auto;display:flex;flex-direction:column;gap:14px;text-align:left;">
+  <form id="contactForm" action="https://formspree.io/f/xgvglava" method="POST"
+      style="max-width:480px;margin:24px auto;display:flex;flex-direction:column;gap:14px;text-align:left;">
     <input type="hidden" name="_replyto" value="prled@outlook.com">
-    <input type="text" name="nome" placeholder="Seu nome completo" required style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
-    <input type="email" name="email" placeholder="Seu e-mail" required style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
-    <input type="tel" name="telefone" placeholder="Telefone / WhatsApp" required style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
-    <input type="text" name="assunto" placeholder="Qual é sua demanda? Ex.: verbas rescisórias / consultoria" style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
-    <textarea name="mensagem" rows="4" placeholder="Descreva sua situação brevemente" style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;"></textarea>
-    <button type="submit" style="background:#1f3b5a;color:white;padding:14px 20px;border-radius:10px;font-weight:700;font-size:1rem;border:none;cursor:pointer;">Enviar mensagem</button>
-  </form>
+    <input type="text" name="nome" placeholder="Seu nome completo" required 
+           style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
+    <input type="email" name="email" placeholder="Seu e-mail" required 
+           style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
+    <input type="tel" name="telefone" placeholder="Telefone / WhatsApp" required 
+           style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
+    <input type="text" name="assunto" placeholder="Qual é sua demanda? Ex.: verbas rescisórias / consultoria" 
+           style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
+    <textarea name="mensagem" rows="4" placeholder="Descreva sua situação brevemente" 
+              style="padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:1rem;"></textarea>
 
- <p style="color:#6b6b6b;font-size:0.9rem;margin-top:6px;text-align:center;display:block;">
+    <button type="submit" 
+            style="background:#1f3b5a;color:white;padding:14px 20px;border-radius:10px;
+                   font-weight:700;font-size:1rem;border:none;cursor:pointer;">
+        Enviar mensagem
+    </button>
+</form>
+
+<!-- Mensagem animada -->
+<p id="formSuccess" 
+   style="display:none;margin-top:12px;color:#1f3b5a;font-weight:600;text-align:center;
+          opacity:0;transition:opacity .6s ease;">
+    ✓ Mensagem enviada com sucesso! Responderei em breve.
+</p>
+
+<p style="color:#6b6b6b;font-size:0.9rem;margin-top:6px;text-align:center;display:block;">
   ✓ Seus dados são mantidos em sigilo. <br> 
   ✓ Análise feita diretamente por advogado.
 </p>
-  </div>
-</section>
   
 <!-- FOOTER PROFISSIONAL -->
 <footer style="max-width:1180px;margin:46px auto;background:#0d2239;color:white;padding:28px;border-radius:10px;text-align:center;">
