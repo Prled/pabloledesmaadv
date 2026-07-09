@@ -36,6 +36,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://prledadv.com.br/artigos/terceirizacao-responsabilidade-subsidiaria-empresa.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- AUTOMAÇÃO: cada novo artigo publicado deve ganhar uma entrada <url> aqui,
        com <loc>https://prledadv.com.br/artigos/[slug].html</loc> -->
 </urlset>
