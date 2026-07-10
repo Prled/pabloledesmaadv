@@ -817,6 +817,12 @@ footer.site-footer {
   margin-bottom: 16px;
   display: block;
 }
+.footer-brand p {
+  max-width: 320px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
 .footer-col h4 {
   font-size: 0.72rem;
   font-weight: 500;
