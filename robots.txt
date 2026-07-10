@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /artigos/_template.html
+
+Sitemap: https://prledadv.com.br/sitemap.xml
