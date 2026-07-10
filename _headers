@@ -15,21 +15,22 @@
   # Content Security Policy — cobre Google Fonts, Formspree, Typebot (jsdelivr)
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.typebot.io; connect-src 'self' https://formspree.io https://*.typebot.io https://api.typebot.io; frame-src https://*.typebot.io; form-action https://formspree.io; frame-ancestors 'self';
 
-# -------- ASSETS ESTÁTICOS: cache longo, imutáveis --------
+# -------- ASSETS ESTÁTICOS: cache de 1 dia + revalidação --------
+# (permite trocar imagens/CSS mantendo o mesmo nome e propaga em ~24h sem purge manual)
 /*.webp
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*.png
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*.jpg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*.svg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 # -------- HTML: cache curto (para publicações rápidas) --------
 /*.html
