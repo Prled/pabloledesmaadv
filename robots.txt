@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://prledadv.com.br/sitemap.xml

@@ -1,0 +1,222 @@
+<!--
+  TEMPLATE INTERNO — não é uma página pública funcional, é o molde usado
+  pela tarefa agendada mensal de artigos de SEO para gerar cada novo artigo.
+  Substitua todos os tokens {{...}} e salve como /artigos/[slug].html.
+  Depois de gerar o artigo, adicione um card correspondente em /artigos/index.html
+  (ver comentário "AUTOMAÇÃO" dentro daquele arquivo) e uma entrada em /sitemap.xml.
+
+  SUMÁRIO (OPCIONAL): existe um bloco de sumário com links de âncora dentro do
+  corpo do artigo (procure por "SUMÁRIO (OPCIONAL)"). Ele vem comentado por padrão.
+  Só inclua o sumário quando o artigo tiver MAIS DE 2000 palavras OU 8 OU MAIS
+  seções (h2). Abaixo desse limite, mantenha o bloco comentado (artigos curtos
+  ficam mais limpos e diretos sem índice). Ao usar o sumário: dê a cada <h2> do
+  corpo um id único em kebab-case sem acento e faça cada item do índice apontar
+  para esse id.
+
+  ESTILOS: todos os estilos vêm de /styles.css. Não adicionar CSS inline aqui.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ARTICLE_TITLE}} | Pablo Ledesma Advocacia</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Pablo Ledesma">
+<meta name="theme-color" content="#0B1F34">
+<link rel="canonical" href="https://prledadv.com.br/artigos/{{SLUG}}.html">
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://formspree.io; form-action https://formspree.io;">
+
+<!-- Stylesheet -->
+<link rel="preload" as="style" href="/styles.css">
+<link rel="stylesheet" href="/styles.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://prledadv.com.br/artigos/{{SLUG}}.html">
+<meta property="og:title" content="{{ARTICLE_TITLE}} | Pablo Ledesma Advocacia">
+<meta property="og:description" content="{{META_DESCRIPTION}}">
+<meta property="og:image" content="https://prledadv.com.br/foto-profissional.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Pablo Ledesma Advocacia">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ARTICLE_TITLE}}">
+<meta name="twitter:description" content="{{META_DESCRIPTION}}">
+<meta name="twitter:image" content="https://prledadv.com.br/foto-profissional.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Schema.org — Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ARTICLE_TITLE}}",
+  "description": "{{META_DESCRIPTION}}",
+  "author": { "@type": "Person", "name": "Pablo Ledesma" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pablo Ledesma Advocacia",
+    "logo": { "@type": "ImageObject", "url": "https://prledadv.com.br/logo-cabecalho.png" }
+  },
+  "datePublished": "{{PUBLISH_DATE_ISO}}",
+  "dateModified": "{{PUBLISH_DATE_ISO}}",
+  "mainEntityOfPage": "https://prledadv.com.br/artigos/{{SLUG}}.html",
+  "image": "https://prledadv.com.br/foto-profissional.jpg",
+  "inLanguage": "pt-BR"
+}
+</script>
+
+<!-- Schema.org — BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://prledadv.com.br/"},
+    {"@type":"ListItem","position":2,"name":"Artigos","item":"https://prledadv.com.br/artigos/"},
+    {"@type":"ListItem","position":3,"name":"{{ARTICLE_TITLE}}","item":"https://prledadv.com.br/artigos/{{SLUG}}.html"}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Ir para o conteúdo</a>
+
+<header id="header">
+  <div class="brand-header">
+    <a href="/">
+      <picture>
+        <source type="image/webp" srcset="../logo-cabecalho.webp">
+        <img src="../logo-cabecalho.png" alt="Pablo Ledesma Advocacia" class="logo-header" width="256" height="256" fetchpriority="high" decoding="async"/>
+      </picture>
+    </a>
+    <div class="brand-title">
+      <p class="brand-name">Pablo Ledesma Advocacia</p>
+      <span>Direito do Trabalho · São Paulo</span>
+    </div>
+  </div>
+  <nav id="main-nav">
+    <a class="nav-link" href="/#areas">Áreas de Atuação</a>
+    <a class="nav-link" href="/#sobre">O Escritório</a>
+    <a class="nav-link active" href="/artigos/">Artigos</a>
+    <a class="nav-link" href="/#faq">Dúvidas Frequentes</a>
+    <a class="nav-cta" href="https://wa.me/5511949936195?text=Olá,%20Pablo!%20Gostaria%20de%20uma%20orientação%20trabalhista." target="_blank" rel="noopener noreferrer">Falar com o advogado</a>
+  </nav>
+  <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <span class="article-tag">{{FOCUS_TAG}}</span>
+    <h1>{{ARTICLE_TITLE}}</h1>
+    <div class="article-hero-meta">
+      <span>{{PUBLISH_DATE_DISPLAY}}</span>
+      <span>{{READING_TIME}} min de leitura</span>
+      <span>Por Pablo Ledesma</span>
+    </div>
+  </div>
+</section>
+
+<main id="main-content" class="article-body-wrap">
+
+  <!-- SUMÁRIO (OPCIONAL) — inclua SOMENTE se o artigo tiver mais de 2000 palavras
+       OU 8 ou mais seções (h2). Abaixo disso, deixe este bloco comentado.
+       Para ativar: remova as marcas de comentário, dê a cada <h2> do corpo um id
+       único (kebab-case, sem acento) e faça cada link apontar para esse id.
+  <nav class="article-toc" aria-label="Sumário">
+    <p class="toc-title">Neste artigo</p>
+    <ol>
+      <li><a href="#id-da-primeira-secao">Título da primeira seção</a></li>
+      <li><a href="#id-da-segunda-secao">Título da segunda seção</a></li>
+      <li><a href="#id-da-terceira-secao">Título da terceira seção</a></li>
+    </ol>
+  </nav>
+  -->
+
+  <div class="article-body">
+    {{ARTICLE_BODY_HTML}}
+  </div>
+
+  <div class="article-cta">
+    <h3>Precisa de orientação sobre seu caso?</h3>
+    <p>Fale diretamente com o advogado responsável. Atendimento sigiloso, para trabalhadores e empresas em todo o Estado de São Paulo.</p>
+    <a class="btn-gold" href="https://wa.me/5511949936195?text=Olá,%20Pablo!%20Vim%20do%20artigo%20sobre%20{{SLUG}}." target="_blank" rel="noopener noreferrer">Falar com o advogado</a>
+  </div>
+
+  <a class="back-link" href="/artigos/">← Voltar para todos os artigos</a>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <picture>
+        <source type="image/webp" srcset="../logo-cabecalho.webp">
+        <img src="../logo-cabecalho.png" alt="Pablo Ledesma Advocacia" width="256" height="256" loading="lazy" decoding="async">
+      </picture>
+      <p>Advocacia trabalhista especializada em São Paulo, com atendimento presencial e online para todo o Estado.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="/#areas">Áreas de Atuação</a></li>
+        <li><a href="/#sobre">O Escritório</a></li>
+        <li><a href="/artigos/">Artigos</a></li>
+        <li><a href="/#faq">Dúvidas Frequentes</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <address>
+        <p>
+          <a href="mailto:pablo@prledadv.com.br">pablo@prledadv.com.br</a><br>
+          <a href="https://wa.me/5511949936195" target="_blank">(11) 94993-6195</a><br>
+          São Paulo · SP
+        </p>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Pablo Ledesma Advocacia · Todos os direitos reservados</p>
+    <p class="footer-oab">Advocacia regulamentada pela OAB/SP</p>
+  </div>
+</footer>
+
+<div class="whatsapp-float">
+  <span class="whatsapp-label-text">Falar com o advogado</span>
+  <a class="whatsapp-btn" href="https://wa.me/5511949936195?text=Olá,%20Pablo!%20Gostaria%20de%20uma%20orientação%20trabalhista." target="_blank" rel="noopener noreferrer" aria-label="Iniciar conversa no WhatsApp">
+    <img src="/whatsapp.svg" alt="" width="32" height="32" aria-hidden="true">
+  </a>
+</div>
+
+<script>
+(function(){
+  const h = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    h.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+})();
+(function(){
+  const btn = document.querySelector('.hamburger');
+  const nav = document.getElementById('main-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  });
+})();
+</script>
+</body>
+</html>
