@@ -809,8 +809,11 @@ footer.site-footer {
   margin-bottom: 32px;
 }
 .footer-brand img {
-  width: 200px;
-  height: auto;
+  height: 76px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 6px;
   margin-bottom: 16px;
   display: block;
 }
