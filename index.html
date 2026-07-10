@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://prledadv.com.br/">
 
 <!-- Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.typebot.io; connect-src 'self' https://formspree.io https://*.typebot.io https://api.typebot.io; frame-src https://*.typebot.io; form-action https://formspree.io;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://typebot.io https://*.typebot.io; connect-src 'self' https://formspree.io https://typebot.io https://*.typebot.io https://api.typebot.io; frame-src https://typebot.io https://*.typebot.io; form-action https://formspree.io;">
 
 <!-- Preload: LCP e stylesheet -->
 <link rel="preload" as="image" href="foto-profissional-v2.webp" type="image/webp" fetchpriority="high">
@@ -563,6 +563,7 @@
       s.type = 'module';
       s.textContent = "import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js';" +
         "Typebot.initBubble({typebot:'my-typebot-yf1rzq1'," +
+        "apiHost:'https://viewer.typebot.io'," +
         "theme:{button:{backgroundColor:'#0B1F34',iconColor:'#C9A96E',size:'medium'}," +
         "chatWindow:{backgroundColor:'#F8F5EF'}," +
         "chat:{hostBubbles:{backgroundColor:'#0B1F34',color:'#FFFFFF'}," +
