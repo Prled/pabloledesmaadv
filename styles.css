@@ -64,6 +64,9 @@ a { text-decoration: none; }
 .brand-header { display: flex; align-items: center; gap: 20px; }
 .logo-header {
   height: 56px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   border-radius: 6px;
   transition: height 0.35s var(--ease);
 }
