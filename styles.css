@@ -808,11 +808,11 @@ footer.site-footer {
   border-bottom: 1px solid var(--border);
   margin-bottom: 32px;
 }
-..footer-brand img {
-    width: 200px;
-    height: auto;
-    margin-bottom: 16px;
-    display: block;
+.footer-brand img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 16px;
+  display: block;
 }
 .footer-col h4 {
   font-size: 0.72rem;
