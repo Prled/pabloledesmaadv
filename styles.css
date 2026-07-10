@@ -808,7 +808,7 @@ footer.site-footer {
   border-bottom: 1px solid var(--border);
   margin-bottom: 32px;
 }
-.footer-brand img { height: 76px; margin-bottom: 16px; }
+.footer-brand img { height: 76px;}
 .footer-brand p {
   font-size: 0.82rem;
   color: rgba(255,255,255,0.4);
