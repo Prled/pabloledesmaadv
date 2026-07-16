@@ -1,22 +1,29 @@
 # =============================================================
 # Cloudflare Pages — _headers
-# Documentação: https://developers.cloudflare.com/pages/configuration/headers/
 # =============================================================
 
 # -------- CABEÇALHOS GLOBAIS (todas as URLs) --------
 /*
-  # Segurança básica
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.typebot.io; connect-src 'self' https://formspree.io https://*.typebot.io https://api.typebot.io; frame-src https://*.typebot.io; form-action https://formspree.io; frame-ancestors 'self';
 
-  # Content Security Policy — cobre Google Fonts, Formspree, Typebot (jsdelivr)
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://typebot.io https://*.typebot.io; connect-src 'self' https://formspree.io https://typebot.io https://*.typebot.io https://api.typebot.io; frame-src https://typebot.io https://*.typebot.io; form-action https://formspree.io; frame-ancestors 'self';
+# -------- ASSETS COM VERSÃO (nome tem -v2): cache 30 dias --------
+# Nomes com sufixo -v2 funcionam como content-addressed — arquivos imutáveis.
+# Se um dia precisar trocar, use -v3 e atualize o HTML.
+/*-v2.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
 
-# -------- ASSETS ESTÁTICOS: cache de 1 dia + revalidação --------
-# (permite trocar imagens/CSS mantendo o mesmo nome e propaga em ~24h sem purge manual)
+/*-v2.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+/*-v2.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+# -------- OUTROS ESTÁTICOS: cache 1 dia + revalidação --------
 /*.webp
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
@@ -27,19 +34,19 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*.svg
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
 
 /*.css
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
-# -------- HTML: cache curto (para publicações rápidas) --------
+# -------- HTML: cache curto (publicações rápidas) --------
 /*.html
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=600, must-revalidate
 
 /
-  Cache-Control: public, max-age=300, must-revalidate
+  Cache-Control: public, max-age=600, must-revalidate
 
-# -------- Sitemap e robots: sempre frescos --------
+# -------- Sitemap e robots --------
 /sitemap.xml
   Cache-Control: public, max-age=3600
 
