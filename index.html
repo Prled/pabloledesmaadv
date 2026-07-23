@@ -11,12 +11,12 @@
 <link rel="canonical" href="https://prledadv.com.br/">
 
 <!-- Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.mlcdn.com; font-src 'self' https://fonts.gstatic.com https://*.mlcdn.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://typebot.io https://*.typebot.io https://*.mailerlite.com; connect-src 'self' https://formspree.io https://typebot.io https://*.typebot.io https://api.typebot.io https://*.mailerlite.com; frame-src https://typebot.io https://*.typebot.io https://*.mailerlite.com; form-action https://formspree.io https://*.mailerlite.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://typebot.io https://*.typebot.io; connect-src 'self' https://formspree.io https://typebot.io https://*.typebot.io https://api.typebot.io; frame-src https://typebot.io https://*.typebot.io; form-action 'self' https://formspree.io;">
 
 <!-- Preload: LCP e stylesheet -->
 <link rel="preload" as="image" href="foto-profissional-v2.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="style" href="/styles.css?v=4">
-<link rel="stylesheet" href="/styles.css?v=4">
+<link rel="preload" as="style" href="/styles.css?v=5">
+<link rel="stylesheet" href="/styles.css?v=5">
 
 <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
 <meta property="og:type" content="website">
@@ -447,9 +447,24 @@
       </ul>
     </div>
 
-    <div class="clipping-form-col reveal reveal-delay-2">
-      <!-- MailerLite embedded form (carregado de forma lazy) -->
-      <div class="ml-embedded" data-form="c1hDo8"></div>
+    <div class="clipping-form-wrap reveal reveal-delay-2">
+      <p class="form-title">Assine o Clipping</p>
+      <form id="clippingForm" class="clipping-form" action="/api/subscribe" method="post" novalidate>
+        <div class="form-group">
+          <label for="ml-email">Seu melhor e-mail</label>
+          <input type="email" id="ml-email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+        </div>
+        <label class="clipping-consent">
+          <input type="checkbox" id="ml-consent" required>
+          <span>Autorizo o envio do boletim informativo e o tratamento do meu e-mail. Posso cancelar quando quiser.</span>
+        </label>
+        <button type="submit" class="btn-gold clipping-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Quero receber
+        </button>
+        <p class="clipping-msg" id="clippingMsg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="clipping-privacy">Seus dados são protegidos pela LGPD e nunca compartilhados.</p>
     </div>
   </div>
 </section>
@@ -665,27 +680,51 @@
   });
 })();
 
-// Clipping (MailerLite) — carrega o embed oficial ao aproximar da seção
+// Clipping — inscrição via função no próprio domínio (/api/subscribe)
 (function(){
-  var sec = document.getElementById('clipping');
-  if(!sec) return;
-  var loaded = false;
-  function loadML(){
-    if(loaded) return; loaded = true;
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2494505');
-  }
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ loadML(); io.disconnect(); } });
-    }, { rootMargin: '300px' });
-    io.observe(sec);
-  } else {
-    loadML();
-  }
+  const form = document.getElementById('clippingForm');
+  const msg  = document.getElementById('clippingMsg');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const email   = document.getElementById('ml-email');
+    const consent = document.getElementById('ml-consent');
+    const btn     = form.querySelector('button[type=submit]');
+    msg.className = 'clipping-msg';
+    if(!email.value || !email.checkValidity()){
+      msg.textContent = 'Digite um e-mail válido.';
+      msg.classList.add('is-error','show'); email.focus(); return;
+    }
+    if(!consent.checked){
+      msg.textContent = 'Marque a autorização para continuar.';
+      msg.classList.add('is-error','show'); return;
+    }
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email.value.trim() })
+    }).then(r => r.json().catch(() => ({}))).then(data => {
+      if(data && data.ok){
+        form.reset();
+        msg.textContent = '✓ Inscrição confirmada! Você já receberá o Clipping.';
+        msg.classList.add('is-success','show');
+        btn.textContent = 'Inscrito ✓';
+      } else if(data && data.error === 'invalid_email'){
+        msg.textContent = 'E-mail inválido. Confira e tente de novo.';
+        msg.classList.add('is-error','show');
+        btn.disabled = false; btn.textContent = 'Quero receber';
+      } else {
+        msg.textContent = 'Não foi possível inscrever agora. Tente mais tarde.';
+        msg.classList.add('is-error','show');
+        btn.disabled = false; btn.textContent = 'Quero receber';
+      }
+    }).catch(() => {
+      msg.textContent = 'Falha de conexão. Tente novamente.';
+      msg.classList.add('is-error','show');
+      btn.disabled = false; btn.textContent = 'Quero receber';
+    });
+  });
 })();
 </script>
 </body>

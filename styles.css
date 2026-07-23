@@ -832,16 +832,61 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
   color: rgba(255,255,255,0.7);
   line-height: 1.5;
 }
-.clipping-form-col {
-  display: flex;
-  justify-content: center;
+.clipping-form-wrap {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  border-radius: 6px;
+  padding: 40px;
   box-shadow: 0 24px 60px rgba(8,25,41,0.35);
-  border-radius: 4px;
 }
-.clipping-form-col .ml-form-embedContainer { width: 100%; }
+.clipping-consent {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 4px 0 22px;
+  cursor: pointer;
+}
+.clipping-consent input {
+  flex-shrink: 0;
+  width: 16px; height: 16px;
+  margin-top: 2px;
+  accent-color: var(--gold);
+}
+.clipping-consent span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.55;
+}
+.clipping-btn { width: 100%; justify-content: center; }
+.clipping-msg {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  text-align: center;
+  line-height: 1.5;
+}
+.clipping-msg.show { display: block; }
+.clipping-msg.is-success {
+  background: rgba(201,169,110,0.1);
+  border: 1px solid rgba(201,169,110,0.3);
+  color: var(--gold-light);
+}
+.clipping-msg.is-error {
+  background: rgba(200,80,80,0.1);
+  border: 1px solid rgba(200,80,80,0.35);
+  color: #f0b4b4;
+}
+.clipping-privacy {
+  margin-top: 18px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  line-height: 1.5;
+}
 @media (max-width: 860px){
   .clipping-inner { grid-template-columns: 1fr; gap: 44px; }
-  .clipping-form-col { box-shadow: none; }
+  .clipping-form-wrap { padding: 28px 24px; }
 }
 
 /* =============================================
