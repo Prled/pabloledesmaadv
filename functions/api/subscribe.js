@@ -20,14 +20,17 @@ export async function onRequestPost({ request, env }) {
 
   // Aceita JSON ou form-urlencoded
   let email = '';
+  let rawName = '';
   try {
     const ct = request.headers.get('content-type') || '';
     if (ct.includes('application/json')) {
       const body = await request.json();
       email = String(body.email || '').trim().toLowerCase();
+      rawName = String(body.name || body.nome || '').trim();
     } else {
       const form = await request.formData();
       email = String(form.get('email') || form.get('fields[email]') || '').trim().toLowerCase();
+      rawName = String(form.get('nome') || form.get('name') || '').trim();
     }
   } catch (_) {
     return json({ ok: false, error: 'bad_request' }, 400);
@@ -35,6 +38,16 @@ export async function onRequestPost({ request, env }) {
 
   if (!EMAIL_RE.test(email)) {
     return json({ ok: false, error: 'invalid_email' }, 400);
+  }
+
+  // Primeiro nome -> campo "name" · restante -> "last_name"
+  const fields = {};
+  if (rawName) {
+    const parts = rawName.replace(/\s+/g, ' ').split(' ').filter(Boolean);
+    const first = parts.shift() || '';
+    const last = parts.join(' ');
+    if (first) fields.name = first.charAt(0).toUpperCase() + first.slice(1);
+    if (last) fields.last_name = last;
   }
 
   try {
@@ -49,6 +62,7 @@ export async function onRequestPost({ request, env }) {
         email,
         groups: [GROUP_ID],
         status: 'active',
+        ...(Object.keys(fields).length ? { fields } : {}),
       }),
     });
 
