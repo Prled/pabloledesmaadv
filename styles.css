@@ -791,6 +791,98 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
 }
 
 /* =============================================
+   CLIPPING (Newsletter)
+   ============================================= */
+#clipping {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+#clipping::before {
+  content: '';
+  position: absolute; bottom: -140px; left: -120px;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.clipping-inner {
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 80px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.clipping-lead {
+  margin-top: 20px;
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.85;
+  max-width: 460px;
+}
+.clipping-feats {
+  list-style: none;
+  margin-top: 32px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.clipping-feats li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+.clipping-form-wrap {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 40px;
+}
+.clipping-consent {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 4px 0 22px;
+  cursor: pointer;
+}
+.clipping-consent input {
+  flex-shrink: 0;
+  width: 16px; height: 16px;
+  margin-top: 2px;
+  accent-color: var(--gold);
+}
+.clipping-consent span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.55;
+}
+.clipping-btn { width: 100%; justify-content: center; }
+.clipping-success {
+  display: none;
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(201,169,110,0.1);
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 4px;
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0; transition: opacity 0.5s ease;
+}
+.clipping-privacy {
+  margin-top: 18px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  line-height: 1.5;
+}
+.ml-hidden-iframe {
+  position: absolute; width: 0; height: 0; border: 0;
+  left: -9999px; top: 0;
+}
+@media (max-width: 860px){
+  .clipping-inner { grid-template-columns: 1fr; gap: 44px; }
+  .clipping-form-wrap { padding: 28px 24px; }
+}
+
+/* =============================================
    FOOTER
    ============================================= */
 footer.site-footer {
