@@ -852,8 +852,8 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
   accent-color: var(--gold);
 }
 .clipping-consent span {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.82);
   line-height: 1.55;
 }
 .clipping-btn { width: 100%; justify-content: center; }
@@ -879,8 +879,8 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
 }
 .clipping-privacy {
   margin-top: 18px;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.35);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
   text-align: center;
   line-height: 1.5;
 }
