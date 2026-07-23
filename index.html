@@ -11,12 +11,12 @@
 <link rel="canonical" href="https://prledadv.com.br/">
 
 <!-- Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://typebot.io https://*.typebot.io; connect-src 'self' https://formspree.io https://typebot.io https://*.typebot.io https://api.typebot.io; frame-src https://typebot.io https://*.typebot.io https://assets.mailerlite.com; form-action https://formspree.io https://assets.mailerlite.com;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.mlcdn.com; font-src 'self' https://fonts.gstatic.com https://*.mlcdn.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://typebot.io https://*.typebot.io https://*.mailerlite.com; connect-src 'self' https://formspree.io https://typebot.io https://*.typebot.io https://api.typebot.io https://*.mailerlite.com; frame-src https://typebot.io https://*.typebot.io https://*.mailerlite.com; form-action https://formspree.io https://*.mailerlite.com;">
 
 <!-- Preload: LCP e stylesheet -->
 <link rel="preload" as="image" href="foto-profissional-v2.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="style" href="/styles.css?v=3">
-<link rel="stylesheet" href="/styles.css?v=3">
+<link rel="preload" as="style" href="/styles.css?v=4">
+<link rel="stylesheet" href="/styles.css?v=4">
 
 <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
 <meta property="og:type" content="website">
@@ -438,7 +438,7 @@
   <div class="clipping-inner">
     <div class="clipping-text reveal">
       <p class="section-label" style="color:var(--gold);">Boletim Semanal · Gratuito</p>
-      <h2 class="section-title" style="color:var(--white);">Clipping <em>Trabalhista</em></h2>
+      <h2 class="section-title" style="color:var(--white);">Fique à frente das <em>decisões trabalhistas</em></h2>
       <p class="clipping-lead">As principais decisões do Direito do Trabalho, toda quinta-feira, em linguagem direta. Para trabalhadores e empresas.</p>
       <ul class="clipping-feats">
         <li><span class="feat-dot"></span>Curadoria das decisões que realmente importam</li>
@@ -447,29 +447,11 @@
       </ul>
     </div>
 
-    <div class="clipping-form-wrap reveal reveal-delay-2">
-      <p class="form-title">Assine o Clipping</p>
-      <form id="clippingForm" class="clipping-form" action="https://assets.mailerlite.com/jsonp/2494505/forms/193752609708836264/subscribe" method="post" target="mlClippingFrame">
-        <div class="form-group">
-          <label for="ml-email">Seu melhor e-mail</label>
-          <input type="email" id="ml-email" name="fields[email]" placeholder="seu@email.com" autocomplete="email" required>
-        </div>
-        <label class="clipping-consent">
-          <input type="checkbox" id="ml-consent" required>
-          <span>Autorizo o envio do boletim informativo e o tratamento do meu e-mail. Posso cancelar quando quiser.</span>
-        </label>
-        <input type="hidden" name="ml-submit" value="1">
-        <input type="hidden" name="anticsrf" value="true">
-        <button type="submit" class="btn-gold clipping-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Quero receber
-        </button>
-        <p class="clipping-success" id="clippingSuccess" role="status" aria-live="polite">✓ Inscrição enviada! Confira seu e-mail para confirmar.</p>
-      </form>
-      <p class="clipping-privacy">Seus dados são protegidos pela LGPD e nunca compartilhados.</p>
+    <div class="clipping-form-col reveal reveal-delay-2">
+      <!-- MailerLite embedded form (carregado de forma lazy) -->
+      <div class="ml-embedded" data-form="c1hDo8"></div>
     </div>
   </div>
-  <iframe name="mlClippingFrame" id="mlClippingFrame" class="ml-hidden-iframe" title="Inscrição no Clipping" aria-hidden="true" tabindex="-1"></iframe>
 </section>
 
 <!-- ===================== CONTATO ===================== -->
@@ -683,26 +665,27 @@
   });
 })();
 
-// Clipping (MailerLite) — envio via iframe oculto + sucesso inline
+// Clipping (MailerLite) — carrega o embed oficial ao aproximar da seção
 (function(){
-  const form   = document.getElementById('clippingForm');
-  const iframe = document.getElementById('mlClippingFrame');
-  const ok     = document.getElementById('clippingSuccess');
-  if(!form || !iframe) return;
-  let submitted = false;
-  form.addEventListener('submit', function(){
-    submitted = true;
-    const btn = form.querySelector('button[type=submit]');
-    if(btn){ btn.disabled = true; btn.textContent = 'Enviando...'; }
-  });
-  iframe.addEventListener('load', function(){
-    if(!submitted) return;
-    form.reset();
-    ok.style.display = 'block';
-    requestAnimationFrame(() => { ok.style.opacity = '1'; });
-    const btn = form.querySelector('button[type=submit]');
-    if(btn){ btn.disabled = false; btn.textContent = 'Inscrição enviada ✓'; }
-  });
+  var sec = document.getElementById('clipping');
+  if(!sec) return;
+  var loaded = false;
+  function loadML(){
+    if(loaded) return; loaded = true;
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2494505');
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ loadML(); io.disconnect(); } });
+    }, { rootMargin: '300px' });
+    io.observe(sec);
+  } else {
+    loadML();
+  }
 })();
 </script>
 </body>

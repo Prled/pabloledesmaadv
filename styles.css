@@ -832,57 +832,16 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
   color: rgba(255,255,255,0.7);
   line-height: 1.5;
 }
-.clipping-form-wrap {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--gold);
-  border-radius: 6px;
-  padding: 40px;
+.clipping-form-col {
+  display: flex;
+  justify-content: center;
   box-shadow: 0 24px 60px rgba(8,25,41,0.35);
-}
-.clipping-consent {
-  display: flex; align-items: flex-start; gap: 10px;
-  margin: 4px 0 22px;
-  cursor: pointer;
-}
-.clipping-consent input {
-  flex-shrink: 0;
-  width: 16px; height: 16px;
-  margin-top: 2px;
-  accent-color: var(--gold);
-}
-.clipping-consent span {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.55;
-}
-.clipping-btn { width: 100%; justify-content: center; }
-.clipping-success {
-  display: none;
-  margin-top: 16px;
-  padding: 16px;
-  background: rgba(201,169,110,0.1);
-  border: 1px solid rgba(201,169,110,0.3);
   border-radius: 4px;
-  color: var(--gold-light);
-  font-size: 0.9rem;
-  text-align: center;
-  opacity: 0; transition: opacity 0.5s ease;
 }
-.clipping-privacy {
-  margin-top: 18px;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.35);
-  text-align: center;
-  line-height: 1.5;
-}
-.ml-hidden-iframe {
-  position: absolute; width: 0; height: 0; border: 0;
-  left: -9999px; top: 0;
-}
+.clipping-form-col .ml-form-embedContainer { width: 100%; }
 @media (max-width: 860px){
   .clipping-inner { grid-template-columns: 1fr; gap: 44px; }
-  .clipping-form-wrap { padding: 28px 24px; }
+  .clipping-form-col { box-shadow: none; }
 }
 
 /* =============================================
