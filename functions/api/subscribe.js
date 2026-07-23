@@ -50,31 +50,49 @@ export async function onRequestPost({ request, env }) {
     if (last) fields.last_name = last;
   }
 
+  const API = 'https://connect.mailerlite.com/api/subscribers';
+  const headers = {
+    'Authorization': `Bearer ${env.MAILERLITE_API_KEY}`,
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  };
+
   try {
-    const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    // 1) Cria/atualiza o assinante SEM grupo — para depois adicioná-lo
+    //    explicitamente e disparar a automação de boas-vindas ("entrou no grupo").
+    const up = await fetch(API, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${env.MAILERLITE_API_KEY}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
+      headers,
       body: JSON.stringify({
         email,
-        groups: [GROUP_ID],
         status: 'active',
         ...(Object.keys(fields).length ? { fields } : {}),
       }),
     });
 
-    // 200 = já existia / atualizado · 201 = criado
-    if (res.status === 200 || res.status === 201) {
-      return json({ ok: true }, 200);
+    if (up.status === 422) return json({ ok: false, error: 'invalid_email' }, 400);
+    if (up.status !== 200 && up.status !== 201) return json({ ok: false, error: 'upstream' }, 502);
+
+    const data = await up.json().catch(() => ({}));
+    const id = (data && data.data && data.data.id) ? data.data.id : (data && data.id);
+
+    // 2) Adiciona ao grupo explicitamente — dispara o gatilho de boas-vindas
+    let grouped = false;
+    if (id) {
+      const g = await fetch(`${API}/${id}/groups/${GROUP_ID}`, { method: 'POST', headers });
+      grouped = (g.status === 200 || g.status === 201);
     }
-    if (res.status === 422) {
-      // e-mail recusado pela validação do MailerLite
-      return json({ ok: false, error: 'invalid_email' }, 400);
+
+    // 3) Garantia: se o passo 2 falhar, assegura a inscrição no grupo
+    if (!grouped) {
+      await fetch(API, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ email, groups: [GROUP_ID], status: 'active' }),
+      });
     }
-    return json({ ok: false, error: 'upstream' }, 502);
+
+    return json({ ok: true }, 200);
   } catch (_) {
     return json({ ok: false, error: 'network' }, 502);
   }
