@@ -797,6 +797,7 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
   background: var(--navy);
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 90px;
 }
 #clipping::before {
   content: '';
@@ -834,8 +835,10 @@ details[open] .faq-icon { background: var(--gold-dim); color: var(--white); tran
 .clipping-form-wrap {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
   border-radius: 6px;
   padding: 40px;
+  box-shadow: 0 24px 60px rgba(8,25,41,0.35);
 }
 .clipping-consent {
   display: flex; align-items: flex-start; gap: 10px;
