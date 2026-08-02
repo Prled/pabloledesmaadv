@@ -1273,3 +1273,50 @@ footer.site-footer { background: var(--navy-deep); border-top: 1px solid var(--b
     scroll-behavior: auto !important;
   }
 }
+
+/* ================ MENU MOBILE (dropdown ao abrir o hamburger) ================ */
+/* Os blocos @media acima ocultam os links no mobile; aqui os revelamos quando
+   o hamburger é acionado (JS adiciona a classe .open em #main-nav).
+   Especificidade maior (#main-nav.open .nav-link) vence o display:none. */
+@media(max-width: 768px) {
+  #main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(11,31,52,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 14px 34px rgba(8,25,41,0.45);
+    padding: 6px 24px 18px;
+  }
+  #main-nav.open {
+    display: flex;
+  }
+  #main-nav.open .nav-link {
+    display: block;
+    padding: 14px 8px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-s, rgba(255,255,255,0.08));
+  }
+  #main-nav.open .nav-cta {
+    display: block;
+    margin: 16px 0 0;
+    text-align: center;
+  }
+
+  /* Ícone hamburger vira um "X" quando aberto */
+  .hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+}
