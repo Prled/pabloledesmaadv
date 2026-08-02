@@ -1288,8 +1288,7 @@ footer.site-footer { background: var(--navy-deep); border-top: 1px solid var(--b
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: rgba(11,31,52,0.98);
-    backdrop-filter: blur(12px);
+    background: var(--navy);
     border-bottom: 1px solid var(--border);
     box-shadow: 0 14px 34px rgba(8,25,41,0.45);
     padding: 6px 24px 18px;
