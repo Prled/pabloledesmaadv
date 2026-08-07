@@ -54,5 +54,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://prledadv.com.br/artigos/pejotizacao-tema-1389-stf.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Para cada novo artigo, adicionar aqui uma entrada <url> com o slug correto e a data. -->
 </urlset>
