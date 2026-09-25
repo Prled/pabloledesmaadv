@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://prledadv.com.br/artigos/</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -57,6 +57,12 @@
   <url>
     <loc>https://prledadv.com.br/artigos/pejotizacao-tema-1389-stf.html</loc>
     <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://prledadv.com.br/artigos/licenca-maternidade-o-que-mudou-empresas.html</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
